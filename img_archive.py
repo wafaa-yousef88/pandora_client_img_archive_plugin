@@ -20,16 +20,18 @@ def parse_path(client, path):
         return:
             return None if file is ignored, dict with parsed item information otherwise
     '''
-        m = re.compile('^(\d{4})/(\d{2})_(\d{4})/(?P<day>\d+)_(?P<month>\d+)_(?P<year>\d{4})/(?P<location1>.+?)/(?P<location2>.+?)/(?P<subject1>.+?)/(?P<shooter>.+?)/((?P<subject2>.+?)/|).*').match(path)
+    #m = re.compile('^(\d{4})/(\d{2})_(\d{4})/(?P<day>\d+)_(?P<month>\d+)_(?P<year>\d{4})/(?P<location1>.+?)/(?P<location2>.+?)/(?P<subject1>.+?)/(?P<shooter>.+?)/((?P<subject2>.+?)/|).*').match(path)
+    m = re.compile('^(?P<subject1>.+?)/(?P<subject2>.+?)/((?P<subject3>.+?)/|).*').match(path)    
     if not m:
         return None
     info = m.groupdict()
-    date = '%s-%s-%s' % (info['year'], info['month'], info['day'])
+    #date = '%s-%s-%s' % (info['year'], info['month'], info['day'])
     for key in info:
         if info[key]:
             info[key] = info[key].replace('_', ' ')
 
-    topic = [info['subject']]
+    #topic = [info['subject']]
+    topic = [info['subject1']]
     '''
     if info['subject2']:
         topic.append(info['subject2'])
@@ -42,9 +44,9 @@ def parse_path(client, path):
     title = path
 
     r = {
-        'cinematographer': [info['shooter']],
+        #'cinematographer': [info['shooter']],
         'title': title,
-        'date': date,
+        #'date': date,
         #'location': '%s, %s' % (info['location2'], info['location1']),        
         #'collection': os.path.dirname(path),
         'topic': topic
