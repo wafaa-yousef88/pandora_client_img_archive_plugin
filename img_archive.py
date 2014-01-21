@@ -10,7 +10,8 @@ import re
 import ox
 
 def example_path(client):
-    return '\t' + 'YYYY/MM_YYYY/DD_MM_YYYY/Location 1/Location 2/Subject 1/Shooter/Subject 2(optional)/party.PNG'
+    #return '\t' + 'YYYY/MM_YYYY/DD_MM_YYYY/Location 1/Location 2/Subject 1/Shooter/Subject 2(optional)/party.PNG'
+    return '\t' + 'Subject 1/Subject 2/Subject 3(optional)/party.PNG'  
 
 def parse_path(client, path):
     '''
