@@ -1,0 +1,2 @@
+to use img_archive.py put it in ~/.ox/client.d/
+The script img_archive.py is to override default behaviour of parse_path() func to fit for image archive needs
