@@ -8,6 +8,7 @@
 '''
 import re
 import ox
+import os
 
 def example_path(client):
     #return '\t' + 'YYYY/MM_YYYY/DD_MM_YYYY/Location 1/Location 2/Subject 1/Shooter/Subject 2(optional)/party.PNG'
